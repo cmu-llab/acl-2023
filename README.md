@@ -10,7 +10,7 @@ Young Min Kim, Kalvin Chang, Chenxuan Cui, and David Mortensen (forthcoming). Tr
 
 
 ```
-@InProceedings{Chang-et-al:2022,
+@InProceedings{Kim-et-al:2023,
   author = {Kim, Young Min and Chang, Kalvin and Cui, Chenxuan and Mortensen, David R.},
   title = {Transformed Protoform Reconstruction},
   booktitle = {Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (ACL 2023)},
