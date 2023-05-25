@@ -1,0 +1,17 @@
+{
+    "dataset": "chinese_baxter",
+    "learning_rate": 0.0007477451432818815,
+    "beta1": 0.9,
+    "beta2": 0.98,
+    "num_encoder_layers": 2,
+    "num_decoder_layers": 5,
+    "embedding_size": 128,
+    "nhead": 8,
+    "dim_feedforward": 647,
+    "dropout": 0.17088613414795506,
+    "epochs": 30,
+    "warmup_epochs": 32,
+    "weight_decay": 0.0000001,
+    "batch_size": 32,
+    "checkpoint_metrics": ["loss", "token_edit_distance"]
+}
