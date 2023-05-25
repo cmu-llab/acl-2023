@@ -9,7 +9,7 @@
     "nhead": 8,
     "dim_feedforward": 647,
     "dropout": 0.17088613414795506,
-    "epochs": 30,
+    "epochs": 200,
     "warmup_epochs": 32,
     "weight_decay": 0.0000001,
     "batch_size": 32,
