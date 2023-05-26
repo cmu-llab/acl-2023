@@ -1,0 +1,17 @@
+{
+    "dataset": "romance_ipa_meloni",
+    "learning_rate": 0.00013,
+    "beta1": 0.9,
+    "beta2": 0.98,
+    "num_encoder_layers": 3,
+    "num_decoder_layers": 3,
+    "embedding_size": 128,
+    "nhead": 8,
+    "dim_feedforward": 128,
+    "dropout": 0.202,
+    "epochs": 200,
+    "warmup_epochs": 50,
+    "weight_decay": 0,
+    "batch_size": 1,
+    "checkpoint_metrics": ["loss", "token_edit_distance"]
+}
