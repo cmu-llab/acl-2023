@@ -90,9 +90,11 @@ if __name__ == '__main__':
                         help='chinese_wikihan2022/chinese_baxter/romance_ipa/romance_orto')
     args = parser.parse_args()
 
-    # evaluate 5 runs
+    # evaluate 10 runs
     runs_dir = os.path.join(WORK_DIR, 'checkpoints', f'{args.model}_{args.dataset}')
     runs = Path(runs_dir).rglob(f'{args.model}_{args.dataset}_gpu*_best_ed.pt')
+    runs = list(runs)
+    assert len(runs) == 10
     predictions_dir = os.path.join(WORK_DIR, 'predictions', f'{args.model}_{args.dataset}', 'phylogeny')
     Path(predictions_dir).mkdir(parents=True, exist_ok=True)
 
@@ -127,3 +129,4 @@ if __name__ == '__main__':
         with open(preds_path + '.newick', "w") as f:
             f.write(newick)
             f.write("\n")
+        print('saved to ', preds_path + '.newick')

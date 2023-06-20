@@ -204,6 +204,8 @@ def test(criterion, model_path, save_preds=False, preds_path='', do_print=False)
 
     model.load_state_dict(saved_info['model'])
 
+    print(sum(p.numel() for p in model.parameters()), 'parameters')
+
     test_dataset = Dataset(get_dataset_path('test'), ipa_vocab, dialect_vocab)
     test_loader = DataLoader(test_dataset, batch_size=conf.batch_size, shuffle=False,
                              collate_fn=test_dataset.collate_fn)
@@ -319,7 +321,8 @@ if __name__ == '__main__':
             fer.append(metrics['test/feature_error_rate'])
     ped, nped, ced, nced, accuracy, fer, bcfs = np.array(ped), np.array(nped), np.array(ced), np.array(nced), \
                                                 np.array(accuracy), np.array(fer), np.array(bcfs)
-    print('\nmean / stdev across 5 runs')
+    print('\nmean / stdev across 10 runs')
+    assert len(accuracy) == 10
     if "orto" in conf.dataset:
         print('ED', ced.mean(), ced.std())
         print('NED', nced.mean(), nced.std())
