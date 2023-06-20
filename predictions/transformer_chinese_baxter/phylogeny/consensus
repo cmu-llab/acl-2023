@@ -1,9 +1,8 @@
-(((((Wenzhou:11.0,Nanjing:11.0):2.00,(Fuzhou:11.0,Tunxi:11.0):2.00):2.00,((Harbin:11.0,
-Lanzhou:11.0):2.00,(Xiangtan:11.0,Xiamen:11.0):2.00):2.00):2.00,((Urumqi:11.0,
-Suzhou:11.0):2.00,((Hong_Kong:11.0,Shanghai:11.0):2.00,(Wuhan:11.0,Pingyao:11.0):4.00):2.00):2.00):2.00,
-(((Guiyang:11.0,Qingdao:11.0):2.00,((Changsha:11.0,Zhengzhou:11.0):2.00,(Guangzhou:11.0,
-Nanning:11.0):4.00):2.00):2.00,(((Kunming:11.0,Chengdu:11.0):2.00,Haikou:11.0):3.00,
-Xian:11.0):1.00,(((Shantou:11.0,Hefei:11.0):2.00,Yinchuan:11.0):2.00,(Taoyuan:11.0,
-(Beijing:11.0,Nanchang:11.0):3.00):2.00):2.00,(Jianou:11.0,Jinan:11.0):3.00,(Xining:11.0,
-Meixian:11.0):2.00,(Taiyuan:11.0,Hohhot:11.0):2.00,(Hangzhou:11.0,(Shexian:11.0,
-Tianjin:11.0):2.00):2.00):2.00);
+(((Wenzhou:10.0,Suzhou:10.0):2.00,Qingdao:10.0):1.00,(Guiyang:10.0,Nanjing:10.0):1.00,
+(((Kunming:10.0,Chengdu:10.0):2.00,Haikou:10.0):3.00,Xian:10.0):1.00,(Urumqi:10.0,
+Taoyuan:10.0):1.00,((Hong_Kong:10.0,Fuzhou:10.0):2.00,(Guangzhou:10.0,Nanning:10.0):3.00,
+Xiamen:10.0):1.00,(Wuhan:10.0,Pingyao:10.0):3.00,(Changsha:10.0,(Nanchang:10.0,
+Shanghai:10.0):2.00):1.00,Harbin:10.0,(Xiangtan:10.0,Hangzhou:10.0):2.00,(Shantou:10.0,
+Meixian:10.0):2.00,(Hefei:10.0,Shexian:10.0):2.00,(Jianou:10.0,Jinan:10.0):2.00,
+Xining:10.0,(Taiyuan:10.0,Hohhot:10.0):2.00,(Lanzhou:10.0,Beijing:10.0):2.00,
+(Tianjin:10.0,Tunxi:10.0):1.00,(Yinchuan:10.0,Zhengzhou:10.0):2.00);

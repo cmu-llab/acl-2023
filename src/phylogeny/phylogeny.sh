@@ -10,8 +10,11 @@ do
   consense_input=predictions/$MODEL\_$DATASET/phylogeny/phylogenies
   touch $consense_input
   echo -n "" > $consense_input
+
+  hyp_tree_list=()
   for newick in predictions/$MODEL\_$DATASET/phylogeny/*.newick
   do
+    hyp_tree_list+=$newick
     cat $newick >> $consense_input
   done
 
@@ -31,5 +34,26 @@ do
   gqd=$(echo "scale=5; $butterflies_diff / $butterflies_gold" | bc)
 
   echo "$MODEL $DATASET GQD $gqd"
-  echo
+
+  # get GQD of each run's tree, then take average/stdev using numpy
+  gqd_list=predictions/$MODEL\_$DATASET/phylogeny/gqd
+  rm $gqd_list
+  touch $gqd_list
+  for hyp_tree in $hyp_tree_list
+  do
+    # avoid newick package's "Node names must not contain whitespace or punctuation" while reading
+    sed -i.bak 's/Hong Kong/Hong_Kong/g' $hyp_tree && rm $hyp_tree.bak
+
+    python src/phylogeny/fix_tree.py -t $hyp_tree
+    mv $hyp_tree.newick $hyp_tree
+    GOLD_TREE=src/phylogeny/$DATASET\_gold.newick
+    butterflies_agree=$(./src/phylogeny/quartet_dist -v $hyp_tree $GOLD_TREE | awk -F '\t' '{print $5}')
+    # if you run quartet_dist on the gold tree compared to itself, # butterflies in the gold = # butterflies in the "hypothesis"
+    butterflies_gold=$(./src/phylogeny/quartet_dist -v $GOLD_TREE $GOLD_TREE | awk -F '\t' '{print $5}')
+    butterflies_diff=$(($butterflies_gold - $butterflies_agree))
+    gqd=$(echo "scale=5; $butterflies_diff / $butterflies_gold" | bc)
+    echo $gqd >> $gqd_list
+  done
+
+  python -c "import pandas as pd; print( pd.read_csv('$gqd_list', header=None).mean(), pd.read_csv('$gqd_list', header=None).std() )"
 done
