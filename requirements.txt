@@ -1,0 +1,6 @@
+# make sure you also install pytorch according to the official instructions https://pytorch.org/get-started/locally/
+tqdm
+transformers
+wandb
+lingrex
+git+https://github.com/dmort27/panphon.git@master    # pypi may not be updated yet
