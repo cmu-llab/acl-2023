@@ -22,6 +22,7 @@ Copy ./consense to src/phylogeny/: ```cp PATH_TO_PHYLIP/phylip-3.695/exe/consens
 
 
 ## Running our code
+Note: Do not run the code on Mac M1 silicon - the results will not hold. 
 
 ### Training
 ```
@@ -58,6 +59,55 @@ python src/phylogeny_probe.py --model transformer --dataset chinese_baxter
 ```
 (don't forget the dot)
 
+
+### RNN baseline (re-implementation of Meloni et al)
+This PyTorch re-implementation of Meloni et al 2021 supersedes our previous re-implementation at https://github.com/cmu-llab/meloni-2021-reimplementation.
+
+
+Training:
+```
+wandb login
+
+export WORK_DIR=.
+export DATA_DIR=data
+
+python rnn/train_encoder_decoder_rnn.py \
+    --dataset DATASET --save_predictions true \
+    --lr \
+    --beta1 \
+    --beta2 \
+    --encoder_layers 1 \
+    --decoder_layers 1 \
+    --embedding_size \
+    --dim_feedforward \
+    --dropout \
+    --epochs \
+    --lang_separators \
+    --warmup_epochs \
+    --batch_size \
+    --wandb_name YOUR_WANDB_PROJECT \
+    --wandb_entity YOUR_WANDB_ORG \
+    --sweeping true
+```
+(note - do not set the batch size to anything besides 1 for *decoding*)
+
+
+Evaluation:
+```
+python src/evaluate.py --model rnn --dataset romance_orto_meloni
+python src/evaluate.py --model rnn --dataset romance_orto_meloni
+python src/evaluate.py --model rnn --dataset chinese_baxter
+```
+If you would like to run the evaluation with romance_ipa and romance_orto (the full datasets we use in our main results), please contact Ciobanu and Dinu (2014) for their data. 
+
+
+
+Phylogeny probe:
+```
+python rnn/phylogeny_probe.py --model rnn --dataset romance_orto
+python rnn/phylogeny_probe.py --model rnn --dataset romance_ipa
+python rnn/phylogeny_probe.py --model rnn --dataset chinese_baxter
+```
 
 
 # Citing our paper
