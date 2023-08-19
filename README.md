@@ -94,9 +94,9 @@ python rnn/train_encoder_decoder_rnn.py \
 
 Evaluation:
 ```
-python src/evaluate.py --model rnn --dataset romance_orto_meloni
-python src/evaluate.py --model rnn --dataset romance_ipa_meloni
-python src/evaluate.py --model rnn --dataset chinese_baxter
+python rnn/evaluate.py --model rnn --dataset romance_orto_meloni
+python rnn/evaluate.py --model rnn --dataset romance_ipa_meloni
+python rnn/evaluate.py --model rnn --dataset chinese_baxter
 ```
 If you would like to run the evaluation with romance_ipa and romance_orto (the full datasets we use in our main results), please contact Ciobanu and Dinu (2014) for their data. 
 
